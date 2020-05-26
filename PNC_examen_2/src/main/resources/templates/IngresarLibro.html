@@ -24,10 +24,15 @@
 			<option th:each="c: ${categorias}" th:value="${c.c_categoria}"><th th:text="${c.s_categoria}"></th></option>
 		</select>
 		</div>
-		<div class="boton-area">
+		<h3>Estado : </h3>
 		
+		<div class="Area">
+				<div class="boton-area">
+		<label class="radio-box"> 
 							<input type="checkbox" th:field="*{b_estado}" name="b_estado">
-		
+		  <span class="checkmark"></span>
+		  </label>
+		</div>
 		</div>
 		<br>
 		<input type="submit" value="Guardar Libro">
