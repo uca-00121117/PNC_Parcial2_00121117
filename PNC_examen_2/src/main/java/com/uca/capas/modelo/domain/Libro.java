@@ -59,7 +59,6 @@ public class Libro {
 	private Boolean b_estado;
 	
 	@NotNull(message = "El campo Fecha no puede quedar vacio")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "f_ingreso")
 	private Date f_ingreso;
 	
