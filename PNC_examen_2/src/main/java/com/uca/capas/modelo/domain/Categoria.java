@@ -26,6 +26,7 @@ public class Categoria {
 	//referenciará esta secuencia (es la que también se define en la propiedad generator 
 	//de la anotación GeneratedValue, y la propiedad sequenceName define el nombre de la
 	//secuencia en la base de datos (esquema incluido)
+	
 	@Id
 	@GeneratedValue(generator="cat_categoria_c_categoria_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "cat_categoria_c_categoria_seq", sequenceName = "public.cat_categoria_c_categoria_seq", allocationSize = 1)

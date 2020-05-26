@@ -12,13 +12,13 @@
 	<form method="post" th:action="@{/guardarLibro}" th:object="${libro}">
 	<div class="formulario-contenido">
 		<h1>Guardar Libro</h1>
-		<h3>Titulo: <input type="text" id="s_titulo" th:field="*{s_titulo}" ></h3>
+		<h3>Titulo : <input type="text" id="s_titulo" th:field="*{s_titulo}" ></h3>
 					<span th:errors="${libro.s_titulo}" style="color:red;"></span><br>
-		<h3>Autor: <input type="text" id="s_autor" th:field="*{s_autor}" ></h3>
+		<h3>Autor : <input type="text" id="s_autor" th:field="*{s_autor}" ></h3>
 					<span th:errors="${libro.s_autor}" style="color:red;"></span><br>
 		<h3>ISBN : <input type="text" id="s_isbn" th:field="*{s_isbn}" ></h3>
 					<span th:errors="${libro.s_isbn}" style="color:red;"></span><br>
-		<h3>Categoria: </h3>
+		<h3>Categoria : </h3>
 		<div class="box" >
 		<select th:field="*{categoria.c_categoria}">
 			<option th:each="c: ${categorias}" th:value="${c.c_categoria}"><th th:text="${c.s_categoria}"></th></option>

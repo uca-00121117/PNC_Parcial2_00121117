@@ -22,7 +22,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(schema = "public", name = "cat_libro")
 public class Libro {
+	//(Clase 15)->@GeneratedValue: Se utiliza para anotar a la propiedad que actúa como llave primaria 
+		//(por ende la que está anotada con @Id). La propiedad generator define el nombre del 
+		//generador que se utilizará para insertar valores secuenciales a la propiedad.
+		//Strategy define la estrategia con la que se generará el valor, en nuestro caso lo dejaremos en AUTO.
 
+		//(Clase 15)->@SequenceGenerator: Se define la secuencia a la que estará haciendo referencia
+		//la anotación GeneratedValue. La propiedad name define el nombre con la que se
+		//referenciará esta secuencia (es la que también se define en la propiedad generator 
+		//de la anotación GeneratedValue, y la propiedad sequenceName define el nombre de la
+		//secuencia en la base de datos (esquema incluido)
+		
 	@Id
 	@GeneratedValue(generator="cat_libro_c_libro_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "cat_libro_c_libro_seq", sequenceName = "public.cat_libro_c_libro_seq", allocationSize = 1)
@@ -69,44 +79,23 @@ public class Libro {
 	public String getS_autor() {return s_autor;	}
 	public void setS_autor(String s_autor) {this.s_autor = s_autor;}
 
-	public Integer getC_categoria() {return c_categoria;	}
-
-	public void setC_categoria(Integer c_categoria) {	this.c_categoria = c_categoria;
-	}
+	public Integer getC_categoria() {return c_categoria;}
+	public void setC_categoria(Integer c_categoria) {this.c_categoria = c_categoria;}
 
 	public Categoria getCategoria() {return categoria;}
+	public void setCategoria(Categoria categoria) {	this.categoria = categoria;	}
 
-	public void setCategoria(Categoria categoria) {	this.categoria = categoria;
-	}
+	public Date getf_ingreso() {return f_ingreso;}
+	public void setf_ingreso(Date fingreso) {this.f_ingreso = fingreso;}
 
-	public Date getf_ingreso() {
-		return f_ingreso;
-	}
+	public Boolean getb_estado() {return b_estado;}
+	public void setb_estado(Boolean estado) {this.b_estado = estado;}
 
-	public void setf_ingreso(Date fingreso) {
-		this.f_ingreso = fingreso;
-	}
+	public String getS_isbn() {	return s_isbn;}
 
-	public Boolean getb_estado() {
-		return b_estado;
-	}
-
-	public void setb_estado(Boolean estado) {
-		this.b_estado = estado;
-	}
-
-	public String getS_isbn() {
-		return s_isbn;
-	}
-
-	public void setS_isbn(String sisbn) {
-		this.s_isbn = sisbn;
-	}
+	public void setS_isbn(String sisbn) {this.s_isbn = sisbn;}
 	
-	public String getF_ingresoDelegate() {
-		if(this.f_ingreso == null){
-			return "";
-		}
+	public String getF_ingresoDelegate() {if(this.f_ingreso == null){return "";	}
 		else{
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
 			String shortdate = sdf.format(this.f_ingreso.getTime());
