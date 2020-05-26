@@ -66,8 +66,8 @@ public class MainController {
 			mav.setViewName("IngresarLibro");
 		}else {
 			c.setf_ingreso(new Date());
-			
 			libroService.save(c);
+			mav.addObject("message", "Libro guardada con éxito");
 			mav.setViewName("index");
 		}
 		
@@ -87,18 +87,15 @@ public class MainController {
 	@RequestMapping("/guardarCategoria")
 	public ModelAndView guardar(@Valid @ModelAttribute Categoria c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
-		if(!result.hasErrors()) {
-			try {
-				categoriaService.saveCategoria(c);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			Categoria categoria=new Categoria();
-			mav.addObject("categoria", categoria);
-			mav.setViewName("exito");
-			return mav;
+		
+		if(result.hasErrors()) {
+			mav.setViewName("IngresarCategoria");
+		}else {
+			categoriaService.saveCategoria(c);
+			mav.addObject("message", "Categoría guardada con éxito");
+			mav.setViewName("index");
 		}
-		mav.setViewName("IngresarCategoria");
+		
 		return mav;
 	}
 	
