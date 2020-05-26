@@ -26,8 +26,9 @@ public class CategoriaServiceImpl implements CategoriaService {
 	}
 
 	@Override
-	public Categoria findOne(Integer c_importancia) throws DataAccessException {
-		return categoriaDAO.findOne(c_importancia);
+	@Transactional
+	public Categoria findOne(Integer c_categoria) throws DataAccessException {
+		return categoriaDAO.findOne(c_categoria);
 	}
 	@Override
 	@Transactional

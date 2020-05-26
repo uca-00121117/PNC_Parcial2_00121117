@@ -46,9 +46,9 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
-	public Categoria findOne(Integer c_categoria) throws DataAccessException {
+	public Categoria findOne(Integer c) throws DataAccessException {
 		
-		Categoria imp = entityManager.find(Categoria.class, c_categoria);
+		Categoria imp = entityManager.find(Categoria.class, c);
 		return imp;
 	}
 	@Override

@@ -1,4 +1,4 @@
-package com.uca.capas.modelo.dao;
+	package com.uca.capas.modelo.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
