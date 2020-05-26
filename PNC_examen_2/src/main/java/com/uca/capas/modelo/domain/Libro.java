@@ -56,11 +56,11 @@ public class Libro {
 	private String s_isbn;
 	
 	@Column(name = "b_estado")
-	private String b_estado;
+	private Boolean b_estado;
 	
 	@NotNull(message = "El campo Fecha no puede quedar vacio")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Column(name = "f_fecha_ingreso")
+	@Column(name = "f_ingreso")
 	private Date f_ingreso;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -84,8 +84,8 @@ public class Libro {
 	public String getS_isbn(){return s_isbn;}
 	public void setS_isbn(String s_isbn) {this.s_isbn = s_isbn;}
 	
-	public String getB_estado(){return b_estado;}
-	public void setB_estado(String b_estado) {this.b_estado = b_estado	;}
+	public Boolean getB_estado(){return b_estado;}
+	public void setB_estado(Boolean b_estado) {this.b_estado = b_estado	;}
 	
 	public Date getF_ingreso() {return f_ingreso;}
 	public String getF_ingresoDelegate() {SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
