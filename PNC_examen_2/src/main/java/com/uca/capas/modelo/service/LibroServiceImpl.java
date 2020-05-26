@@ -35,8 +35,7 @@ public class LibroServiceImpl implements LibroService {
 	@Override
 	@Transactional
 	public void save(Libro c) throws DataAccessException {
-		c.setF_ingreso(new Date());
-		c.setCategoria(CategoriaService.findOne(c.getC_categoria()));
+
 		LibroDAO.save(c);	
 		
 	}

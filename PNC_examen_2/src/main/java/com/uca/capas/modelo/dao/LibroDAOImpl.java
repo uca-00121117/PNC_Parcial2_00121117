@@ -6,6 +6,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.uca.capas.modelo.domain.Libro;
 
 @Repository
@@ -46,6 +48,7 @@ public class LibroDAOImpl implements LibroDAO {
 	}
 
 	@Override
+	@Transactional
 	public void save(Libro c) throws DataAccessException {
 		 //Si la propiedad de la llave primaria viene vacío, entonces es un INSERT
 		//Utilizamos persist ya que es un INSERT

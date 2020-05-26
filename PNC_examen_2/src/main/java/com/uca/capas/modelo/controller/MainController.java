@@ -1,5 +1,6 @@
 package com.uca.capas.modelo.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -58,19 +59,19 @@ public class MainController {
 	@RequestMapping("/guardarLibro")
 	public ModelAndView guardarlibro(@Valid @ModelAttribute Libro c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
+	    Date date = new Date();  
 		if(!result.hasErrors()) {
 			try {
+				c.setF_ingreso(new Date());
 				libroService.save(c);
-				mav.setViewName("exito");
-				return mav;
+				
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		
+			mav.setViewName("exito");
+			return mav;	
 		
 		}
-		List<Categoria> categorias = categoriaService.findAll();
-		mav.addObject("categorias", categorias);
 		mav.setViewName("IngresarLibro");
 		return mav;
 
@@ -79,8 +80,9 @@ public class MainController {
 	@RequestMapping("/guardarLibro2")
 	public ModelAndView guardar2(@ModelAttribute Libro c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
-				libroService.save(c);
-				mav.setViewName("exito");
+		c.setF_ingreso(new Date());
+		libroService.save(c);
+		mav.setViewName("exito");
 		return mav;
 
 	}
