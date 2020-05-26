@@ -57,7 +57,7 @@ public class MainController {
 	
 	
 	@RequestMapping("/guardarLibro")
-	public ModelAndView guardarlibro( @ModelAttribute Libro c,BindingResult result) {
+	public ModelAndView guardarlibro(@Valid @ModelAttribute Libro c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) {
@@ -65,7 +65,7 @@ public class MainController {
 			mav.addObject("categorias", categoria);
 			mav.setViewName("IngresarLibro");
 		}else {
-			c.setF_ingreso(new Date());
+			c.setf_ingreso(new Date());
 			
 			libroService.save(c);
 			mav.setViewName("index");
@@ -78,7 +78,7 @@ public class MainController {
 	@RequestMapping("/guardarLibro2")
 	public ModelAndView guardar2(@ModelAttribute Libro c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
-		c.setF_ingreso(new Date());
+		c.setf_ingreso(new Date());
 		libroService.save(c);
 		mav.setViewName("exito");
 		return mav;
