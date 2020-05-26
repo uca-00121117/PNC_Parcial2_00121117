@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Categoria</title>
+</head>
+<body>
+<div class=Global>
+<div class="tarjeta">
+	<form method="post" th:action="@{/guardarCategoria}" th:object="${categoria}">
+			<div class="formulario-contenido">
+		<h1>Agregar Categoria</h1>
+		<h3>Nombre Categoria: <input type="text" id="s_categoria" th:field="*{s_categoria}" ></h3>
+					<span th:errors="${categoria.s_categoria}" style="color:red;"></span><br>
+		<br>
+		<input type="submit" value="Guardar">
+		<input type="button" value="Regresar" onclick="location.href='./index'" />
+		</div>
+	</form>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+
+<head>
+<meta charset="UTF-8">
+<title>Agregar</title>
+</head>
+<body>
+<div class=Global>
+<div class="tarjeta">
+	
+	<form method="post" th:action="@{/guardar}" th:object="${libros}">
+			<div class="formulario-contenido">
+		<h1>Guardar Libro</h1>
+		<h3>Titulo: <input type="text" id="s_titulo" th:field="*{s_titulo}" ></h3>
+					<span th:errors="libros.s_titulo" style="color:red;"></span><br>
+		<h3>Autor: <input type="text" id="s_autor" th:field="*{s_autor}" ></h3>
+					<span th:errors="libros.autor" style="color:red;"></span><br>
+		<h3>Categoria: </h3>
+		<div class="box" >
+		<select th:field="*{c_categoria}">
+			<option th:each="c: ${categorias}" th:value="${c.c_categoria}"><th th:text="${c.s_categoria}"></th></option>
+		</select>
+		</div>
+		<br>
+		<input type="submit" value="Guardar">
+		<input type="button" value="Ver contribuyentes" onclick="location.href='./lista'" />
+		</div>
+		
+	</form>
+
+	
+</div>
+</div>
+</body>
+</html></html>

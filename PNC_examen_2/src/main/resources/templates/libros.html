@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+
+<head>
+<meta charset="UTF-8">
+<title>Listado</title>
+</head>
+<body>
+	<div class="Global">
+	<div class="tarjeta2">
+	<h1>Listado de contribuyentes</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Titulo</th>
+				<th>Autor</th>
+				<th>Categoria</th>
+				<th>Fecha de Ingreso</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="l : ${libros}">
+				<td th:text="${l.s_titulo}"></td>
+				<td th:text="${l.s_autor}"></td>
+				<td th:text="${l.categoria.s_categoria}"></td>
+				<td th:text="${l.f_ingresoDelegate}"></td>
+			</tr>
+		</tbody>
+	</table><br>
+	
+	<input type="button" value="Regresar" onclick="location.href='./inicio'" />
+</div></div>
+</body>
+</html></html>
