@@ -9,7 +9,7 @@
 <body>
 <div class=Global>
 <div class="tarjeta">
-	<form method="post" th:action="@{/guardarLibro}" th:object="${libro}">
+	<form method="post" th:action="@{/guardarLibro2}" th:object="${libro}">
 	<div class="formulario-contenido">
 		<h1>Guardar Libro</h1>
 		<h3>Titulo: <input type="text" id="s_titulo" th:field="*{s_titulo}" ></h3>
@@ -20,7 +20,7 @@
 					<span th:errors="${libro.s_isbn}" style="color:red;"></span><br>
 		<h3>Categoria: </h3>
 		<div class="box" >
-		<select th:field="*{c_categoria}">
+		<select th:field="*{categoria.c_categoria}">
 			<option th:each="c: ${categorias}" th:value="${c.c_categoria}"><th th:text="${c.s_categoria}"></th></option>
 		</select>
 		</div>
@@ -30,7 +30,7 @@
 		
 		</div>
 		<br>
-		<input type="submit" value="Guardar">
+		<input type="submit" value="guardarlibro">
 		<input type="button" value="Regresar" onclick="location.href='./index'" />
 	</div>
 		

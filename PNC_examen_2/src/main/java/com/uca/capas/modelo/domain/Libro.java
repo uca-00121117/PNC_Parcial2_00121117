@@ -34,7 +34,8 @@ public class Libro {
 	//secuencia en la base de datos (esquema incluido)
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator="cat_libro_c_libro_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "cat_libro_c_libro_seq", sequenceName = "public.cat_libro_c_libro_seq", allocationSize = 1)
 	@Column(name = "c_libro")
 	private Integer c_libro;
 	
