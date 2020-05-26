@@ -57,24 +57,20 @@ public class MainController {
 	
 	
 	@RequestMapping("/guardarLibro")
-	public ModelAndView guardarlibro(@Valid @ModelAttribute Libro c,BindingResult result) {
+	public ModelAndView guardarlibro( @ModelAttribute Libro c,BindingResult result) {
 		ModelAndView mav = new ModelAndView();
-		if(!result.hasErrors()) {
-			try {
-				c.setF_ingreso(new Date());
-				libroService.save(c);
-				
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			Libro libro = new Libro();
-			mav.addObject("libro", libro);
-			mav.setViewName("exito");
 		
+		if(result.hasErrors()) {
+			List<Categoria> categoria = categoriaService.findAll();
+			mav.addObject("categorias", categoria);
+			mav.setViewName("IngresarLibro");
+		}else {
+			c.setF_ingreso(new Date());
+			
+			libroService.save(c);
+			mav.setViewName("index");
 		}
-		List<Categoria> categorias = categoriaService.findAll();
-		mav.addObject("categorias", categorias);
-		mav.setViewName("IngresarLibro");
+		
 		return mav;
 
 	}

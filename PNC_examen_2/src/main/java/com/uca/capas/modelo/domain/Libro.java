@@ -40,25 +40,26 @@ public class Libro {
 	private Integer c_libro;
 	
 	@Column(name = "s_titulo")
-	@Size(message = "El nombre no debe tener mas de 500 caracteres", max = 500)
-	@NotEmpty(message = "Este campo no puede estar vacio")
+	//@Size(message = "El nombre no debe tener mas de 500 caracteres", max = 500)
+	//@NotEmpty(message = "Este campo no puede estar vacio")
 	private String s_titulo;
 	
 	@Column(name = "s_autor")
-	@Size(message = "El nombre no debe tener mas de 150 caracteres", max = 150)
-	@NotEmpty(message = "Este campo no puede estar vacio")
+	//@Size(message = "El nombre no debe tener mas de 150 caracteres", max = 150)
+	//@NotEmpty(message = "Este campo no puede estar vacio")
 	private String s_autor;
 	
 	
 	@Column(name = "s_isbn")
-	@Size(message = "El nombre no debe tener mas de 10 caracteres", max = 10)
-	@NotEmpty(message = "Este campo no puede estar vacio")
+	//@Size(message = "El nombre no debe tener mas de 10 caracteres", max = 10)
+	//@NotEmpty(message = "Este campo no puede estar vacio")
 	private String s_isbn;
 	
 	@Column(name = "b_estado")
 	private Boolean b_estado;
 	
 	@NotNull(message = "El campo Fecha no puede quedar vacio")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "f_ingreso")
 	private Date f_ingreso;
 	
